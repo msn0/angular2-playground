@@ -15,8 +15,13 @@ var AppComponent = (function () {
     function AppComponent() {
         this.todos = [];
     }
-    AppComponent.prototype.addTodo = function (todo) {
+    AppComponent.prototype.add = function (todo) {
         this.todos.push(todo);
+    };
+    AppComponent.prototype.remove = function (todo) {
+        this.todos = this.todos.slice(0, this.todos.indexOf(todo)).concat(this.todos.slice(this.todos.indexOf(todo) + 1));
+        // or simply
+        // this.todos.splice(this.todos.indexOf(todo));
     };
     AppComponent = __decorate([
         angular2_1.Component({

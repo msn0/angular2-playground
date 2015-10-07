@@ -16,8 +16,14 @@ class AppComponent {
     this.todos = [];
   }
 
-  addTodo(todo: string) {
+  add(todo: string) {
     this.todos.push(todo);
+  }
+
+  remove(todo: string) {
+    this.todos = this.todos.slice(0,this.todos.indexOf(todo)).concat(this.todos.slice(this.todos.indexOf(todo)+1));
+    // or simply
+    // this.todos.splice(this.todos.indexOf(todo));
   }
 
 }

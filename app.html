@@ -1,6 +1,6 @@
 <input #todotext />
-<button (click)="addTodo(todotext.value)">add</button>
+<button (click)="add(todotext.value)">add</button>
 
 <ul class="todos">
-   <li class="todo" *ng-for="#todo of todos">{{ todo }}</li>
+   <li class="todo" *ng-for="#todo of todos">{{ todo }} <span (click)="remove(todo)">x</span></li>
 </ul>
