@@ -1,0 +1,6 @@
+<input #todotext />
+<button (click)="addTodo(todotext.value)">add</button>
+
+<ul class="todos">
+   <li class="todo" *ng-for="#todo of todos">{{ todo }}</li>
+</ul>

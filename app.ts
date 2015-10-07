@@ -1,20 +1,25 @@
 /// <reference path="typings/angular2/angular2.d.ts" />
 
-import {Component, View, bootstrap} from 'angular2/angular2';
+import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
 
-// Annotation section
 @Component({
-  selector: 'my-app'
+  selector: 'app'
 })
 @View({
-  template: '<h1>Hello {{ name }}</h1>'
+  directives: [NgFor],
+  templateUrl: 'app.html'
 })
-// Component controller
-class MyAppComponent {
-  name: string;
-  constructor() {
-    this.name = 'Doug';
+class AppComponent {
+  todos: Array<string>;
+
+  constructor () {
+    this.todos = [];
   }
+
+  addTodo(todo: string) {
+    this.todos.push(todo);
+  }
+
 }
 
-bootstrap(MyAppComponent);
+bootstrap(AppComponent);

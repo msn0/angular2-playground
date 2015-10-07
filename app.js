@@ -11,20 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-// Annotation section
-var MyAppComponent = (function () {
-    function MyAppComponent() {
-        this.name = 'Alice';
+var AppComponent = (function () {
+    function AppComponent() {
+        this.todos = [];
     }
-    MyAppComponent = __decorate([
+    AppComponent.prototype.addTodo = function (todo) {
+        this.todos.push(todo);
+    };
+    AppComponent = __decorate([
         angular2_1.Component({
-            selector: 'my-app'
+            selector: 'app'
         }),
         angular2_1.View({
-            template: '<h1>Hello {{ name }}</h1>'
+            directives: [angular2_1.NgFor],
+            templateUrl: 'app.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], MyAppComponent);
-    return MyAppComponent;
+    ], AppComponent);
+    return AppComponent;
 })();
-angular2_1.bootstrap(MyAppComponent);
+angular2_1.bootstrap(AppComponent);
