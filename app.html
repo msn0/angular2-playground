@@ -1,6 +1,14 @@
-<input #todotext />
-<button (click)="addTodo(todotext.value)">add</button>
+<input type="text" #todotext/>
+<button (click)="add(todotext.value)">add</button>
 
 <ul class="todos">
-   <li class="todo" *ng-for="#todo of todos">{{ todo }}</li>
+  <li *ng-for="#todo of todos">
+    <span [class.done]="todo.done">{{ todo.text }}</span>
+    <button (click)="markAsDone(todo)">done</button>
+    <button (click)="remove(todo)">x</button>
+  </li>
 </ul>
+
+<div class="counters">
+  Done: {{ filtered() }}/{{ todos.length }}
+</div>

@@ -1,23 +1,59 @@
 /// <reference path="typings/angular2/angular2.d.ts" />
 
-import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
+import {Component, View, Pipe, bootstrap, NgFor} from 'angular2/angular2';
 
-@Component({
-  selector: 'app'
-})
+class Todo {
+  text:string;
+  done:boolean;
+
+  constructor(text:string) {
+    this.text = text;
+    this.done = false;
+  }
+}
+
+//@Pipe({name: 'done'})
+//class Done {
+//  transform(todos:Array<Todo>, args:any[]) {
+//    var a = todos.filter(function (todo:Todo) {
+//      return todo.done;
+//    });
+//    debugger;
+//    return JSON.stringify(todos);
+//  }
+//}
+
+@Component({selector: 'app'})
 @View({
   directives: [NgFor],
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  //pipes: [Done]
 })
 class AppComponent {
-  todos: Array<string>;
+  todos:Array<Todo>;
 
-  constructor () {
+  constructor() {
     this.todos = [];
   }
 
-  addTodo(todo: string) {
-    this.todos.push(todo);
+  add(text:string) {
+    this.todos.push(new Todo(text));
+  }
+
+  remove(todo:Todo) {
+    this.todos = this.todos.filter(function (t:Todo) {
+      return t !== todo;
+    });
+  }
+
+  markAsDone(todo) {
+    todo.done = !todo.done;
+  }
+
+  filtered() {
+    return this.todos.filter(function (todo:Todo) {
+      return todo.done;
+    }).length;
   }
 
 }
