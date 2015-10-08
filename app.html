@@ -1,14 +1,41 @@
-<input type="text" #todotext/>
-<button (click)="add(todotext.value)">add</button>
+<section class="todoapp">
+  <header class="header">
+    <h1>todos</h1>
+    <input #new-todo (keyup.enter)="add(newTodo)" class="new-todo" placeholder="What needs to be done?" autofocus>
+  </header>
+  <section class="main">
+    <input class="toggle-all" type="checkbox" (click)="completeAll()">
+    <label for="toggle-all">Mark all as complete</label>
+    <ul class="todo-list">
+      <li *ng-for="#todo of todos" [class.completed]="todo.completed">
+        <div class="view">
+          <input (click)="toggleCompleted(todo)" class="toggle" type="checkbox" [checked]="todo.completed">
+          <label>{{ todo.text }}</label>
+          <button (click)="remove(todo)" class="destroy"></button>
+        </div>
+        <input class="edit" value="Rule the web">
+      </li>
+    </ul>
+  </section>
+  <footer class="footer">
+    <span class="todo-count"><strong>{{ left() }}</strong> item left</span>
+    <ul class="filters">
+      <li>
+        <a class="selected" href="#/">All</a>
+      </li>
+      <li>
+        <a href="#/active">Active</a>
+      </li>
+      <li>
+        <a href="#/completed">Completed</a>
+      </li>
+    </ul>
+    <button class="clear-completed">Clear completed</button>
+  </footer>
+</section>
+<footer class="info">
+  <p><a href="https://github.com/msn0/angular2-playground" target="_blank">https://github.com/msn0/angular2-playground</a></p>
+  <p>Template thanks to <a href="https://github.com/tastejs/todomvc-app-template">todomvc-app-template</a></p>
+  <p>Created by <a href="https://github.com/msn0">Michał Jezierski</a></p>
+</footer>
 
-<ul class="todos">
-  <li *ng-for="#todo of todos">
-    <span [class.done]="todo.done">{{ todo.text }}</span>
-    <button (click)="markAsDone(todo)">done</button>
-    <button (click)="remove(todo)">x</button>
-  </li>
-</ul>
-
-<div class="counters">
-  Done: {{ filtered() }}/{{ todos.length }}
-</div>
