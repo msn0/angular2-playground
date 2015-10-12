@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/msn0/angular2-playground.git"
+    "url": "git+https://github.com/msn0/angular2-todomvc.git"
   },
   "keywords": [
     "todo",
@@ -23,7 +23,7 @@
   "author": "Michał Jezierski",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/msn0/angular2-playground/issues"
+    "url": "https://github.com/msn0/angular2-todomvc/issues"
   },
-  "homepage": "https://github.com/msn0/angular2-playground#readme"
+  "homepage": "https://github.com/msn0/angular2-todomvc#readme"
 }
