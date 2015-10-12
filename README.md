@@ -1,4 +1,4 @@
-# angular2-todo
+# angular2-todomvc
 
 > Angular 2.0 TodoMVC example
 
