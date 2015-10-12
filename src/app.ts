@@ -1,23 +1,12 @@
-/// <reference path="typings/angular2/angular2.d.ts" />
+import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Todo} from './todo';
 
-import {Component, View, Pipe, bootstrap, NgFor} from 'angular2/angular2';
-
-class Todo {
-  text:string;
-  completed:boolean;
-
-  constructor(text:string) {
-    this.text = text;
-    this.completed = false;
-  }
-}
-
-@Component({ selector: 'app' })
-@View({
-  directives: [NgFor],
-  templateUrl: 'app.html'
+@Component({
+  selector: 'app',
+  directives: [CORE_DIRECTIVES],
+  templateUrl: 'templates/app.html'
 })
-class AppComponent {
+export class App {
   todos:Array<Todo> = [];
 
   add(text) {
@@ -40,8 +29,8 @@ class AppComponent {
 
   left() {
     return this.todos.length - this.todos.filter((t) => {
-      return t.completed;
-    }).length;
+        return t.completed;
+      }).length;
   }
 
   completeAll() {
@@ -51,5 +40,3 @@ class AppComponent {
   }
 
 }
-
-bootstrap(AppComponent);
