@@ -18,11 +18,7 @@ class Todo {
   templateUrl: 'app.html'
 })
 class AppComponent {
-  todos:Array<Todo>;
-
-  constructor() {
-    this.todos = [];
-  }
+  todos:Array<Todo> = [];
 
   add(text) {
     if (text.value === '') {
