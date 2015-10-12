@@ -13,7 +13,7 @@ export class App {
     if (text.value === '') {
       return;
     }
-    this.todos.unshift(new Todo(text.value));
+    this.todos.push(new Todo(text.value));
     text.value = '';
   }
 
