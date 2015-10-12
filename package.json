@@ -1,0 +1,29 @@
+{
+  "name": "angular2-todomvc",
+  "version": "1.0.0",
+  "description": "Angular 2.0 TodoMVC example",
+  "main": "app.js",
+  "dependencies": {
+    "todomvc-app-css": "^2.0.1",
+    "todomvc-common": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msn0/angular2-playground.git"
+  },
+  "keywords": [
+    "todo",
+    "todomvc",
+    "angular2"
+  ],
+  "author": "Michał Jezierski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msn0/angular2-playground/issues"
+  },
+  "homepage": "https://github.com/msn0/angular2-playground#readme"
+}
