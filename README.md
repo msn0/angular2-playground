@@ -2,6 +2,4 @@
 
 > Angular 2.0 TodoMVC example
 
-```sh
-tsc --watch -m commonjs -t es5 --experimentalDecorators --emitDecoratorMetadata app.ts
-```
+[Demo](https://github.com/msn0/angular2-todomvc)
